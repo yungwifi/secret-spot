@@ -40,6 +40,10 @@ const UserSchema = new Schema({
         type: String,
         default: "Your Name"
     },
+    profilePhoto: {
+        type: String,
+        default: "Image URL Goes Here"
+    },
     stance: {
         type: String,
         default: "Your Stance"
