@@ -53,7 +53,7 @@ const spencerM = new User({
     profilePhoto: 'https://i.imgur.com/qIjJwKe.png',
     stance: 'Goofy',
     location: 'Atlanta, GA',
-    spots: [hollywoodHigh, tesla],
+    spots: [hollywoodHigh, krogerLedge],
     photos: [deckPhoto, parkPhoto, selfiePhoto]
 })
 

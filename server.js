@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const app = express();
 mongoose.Promise = global.Promise;
-mongoose.connect(process.env.MONGODB_URI); //mongodb://localhost/idea-board
+mongoose.connect(process.env.MONGODB_URI); //mongodb://localhost/secret-spot
 
 const connection = mongoose.connection;
 connection.on('connected', () => {
@@ -24,9 +24,8 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/client/build/index.html')
 })
 
-app.get('/', (req, res) => {
-    res.send('Hello world!')
-})
+const UserController = require('./controllers/userController')
+app.use('/api/users', UserController)
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
