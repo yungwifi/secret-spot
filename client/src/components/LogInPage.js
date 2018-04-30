@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Link, Router, Switch } from 'react-router-dom'
 import NavBar from './NavBar';
 import styled from 'styled-components'
 import axios from 'axios'
+import SignUp from './SignUp';
 
 class LogInPage extends Component {
     state = {
@@ -36,6 +37,7 @@ class LogInPage extends Component {
                 <NavBar />
                 <h1> Skaters </h1>
                 {userLinks}
+                <SignUp users={this.state.users} />
             </div>
 
         );

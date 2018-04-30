@@ -16,5 +16,16 @@ router.get('/', (req, res) => {
         })
 })
 
+//POST New User
+router.post('/', (req, res) => {
+    console.log('CREATING USER', req.body.user)
+    const newUser = new userModel(req.body.user)
+    newUser.save()
+        .then((user) => {
+            console.log(user)
+            res.json(user)
+        }).catch(console.log)
+})
+
 
 module.exports = router
