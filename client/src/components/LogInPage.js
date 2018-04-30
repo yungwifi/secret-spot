@@ -29,7 +29,7 @@ class LogInPage extends Component {
         const userLinks = this.state.users.map((user, i) => {
             return (
                 <div key={i}>
-                    <Link to={`/user/${user._id}`}>{user.userName}</Link>
+                    <Link to={`/users/${user._id}`}>{user.userName}</Link>
                 </div>)
         })
         return (
@@ -37,7 +37,7 @@ class LogInPage extends Component {
                 <NavBar />
                 <h1> Skaters </h1>
                 {userLinks}
-                <SignUp users={this.state.users} />
+                <SignUp />
             </div>
 
         );
