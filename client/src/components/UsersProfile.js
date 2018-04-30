@@ -4,6 +4,7 @@ import NavBar from './NavBar';
 import styled from 'styled-components'
 import axios from 'axios'
 import SpotsList from './SpotsList';
+import PhotosList from './PhotosList';
 
 const UserProfilePhoto = styled.div`
 img{
@@ -70,6 +71,7 @@ class UserProfile extends Component {
                     <div>
                         <button>Spots</button><button>Photos</button>
                     </div>
+                    <PhotosList {...this.props} />
                     <SpotsList {...this.props} />
                     <UserProfileContainer >
                         <div>

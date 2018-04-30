@@ -17,7 +17,7 @@ class Spots extends Component {
         })
         return (
             <div>
-                Spot List
+                <h4> Spot List </h4>
                 {spotsList}
             </div>
         )
