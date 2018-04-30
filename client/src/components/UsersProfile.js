@@ -28,8 +28,10 @@ align-content: right;
 
 class UserProfile extends Component {
     state = {
-        user: [],
-        redirect: true,
+        user: {
+            name: '',
+        },
+        redirect: false,
     }
 
     componentDidMount() {
@@ -61,6 +63,24 @@ class UserProfile extends Component {
             })
     }
 
+    updateUser = () => {
+        const userId = this.props.match.params.id
+        const updatedUser = this.state.user
+        console.log("UPDATE USER BEING CALLED", userId)
+        axios.patch(`/api/users/${userId}`, updatedUser)
+            .then((res) => {
+                console.log("SETTING STATE", res.data)
+                this.setState({ user: this.state.user })
+            })
+            .catch(console.error)
+    }
+
+    handleChange = (e) => {
+        const user = { ...this.state.user }
+        user[e.target.name] = e.target.value
+        console.log("HANDLE CHANGE EVENT", e.target.value)
+        this.setState({ user })
+    }
     render() {
         return (
             <div>
@@ -82,15 +102,18 @@ class UserProfile extends Component {
                         <div>
                             <UserProfileInfo>
                                 <div className="userInfo">
-                                    <div> Name: {this.state.user.name} </div>
-                                    <div> Stance: {this.state.user.stance} </div>
-                                    <div> Location: {this.state.user.location} </div>
-                                    <div> Bio: {this.state.user.bio} </div>
+                                    <div> Name: <input type="text" name="name" value={this.state.user.name}
+                                        onChange={this.handleChange} onBlur={() => this.updateUser()} /> </div>
+                                    <div> Stance: <input type="text" name="stance" value={this.state.user.stance}
+                                        onChange={this.handleChange} onBlur={() => this.updateUser()} />  </div>
+                                    <div> Location: <input type="text" name="location" value={this.state.user.location}
+                                        onChange={this.handleChange} onBlur={() => this.updateUser()} /> </div>
+                                    <div> Bio: <textarea type="text" name="bio" value={this.state.user.bio}
+                                        onChange={this.handleChange} onBlur={() => this.updateUser()} />  </div>
                                 </div>
                             </UserProfileInfo>
                         </div>
                     </UserProfileContainer>
-
                     <button onClick={this.deleteUser}> Delete {this.state.user.userName}'s Profile </button>
                 </div>
             </div>

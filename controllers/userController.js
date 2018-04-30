@@ -48,5 +48,18 @@ router.delete('/:id', (req, res) => {
         })
 })
 
+//Update a User 
+router.patch('/:id', (req, res) => {
+    // console.log("UPDATE ROUTE HITTING SERVER", req.body)
+    userModel.findByIdAndUpdate(req.params.id, req.body)
+        .then((user) => {
+            res.json(req.body)
+            console.log("DB RESPONSE", user)
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+})
+
 
 module.exports = router

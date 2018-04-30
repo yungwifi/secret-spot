@@ -29,9 +29,21 @@ class SpotsList extends Component {
                 console.log(err)
             })
     }
+
+    addSpot = () => {
+        const userId = this.state.user._id
+        const url = `/api/users/${userId}/spots`
+        console.log("CREATE SPOT ROUTE BEING CALLED", url)
+        axios.post(url)
+            .then((res) => {
+                console.log("RESPONSE FROM NEW SPOT", res.data)
+                this.setState({ spots: res.data.ideas })
+            })
+    }
     render() {
         return (
             <div>
+                <button> Add Spot </button>
                 <Spots user={this.state.user} spots={this.state.spots} />
             </div>
         )
