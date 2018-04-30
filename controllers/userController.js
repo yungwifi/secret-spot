@@ -41,7 +41,7 @@ router.get('/:id', (req, res) => {
 router.delete('/:id', (req, res) => {
     userModel.findByIdAndRemove(req.params.id)
         .then(() => {
-            res.redirect('/')
+            res.sendStatus(200)
         })
         .catch((err) => {
             console.log(err)
