@@ -4,21 +4,19 @@ const spotModel = require("../models/spot")
 const userModel = require("../models/user")
 
 //POST New Spot
-router.post('/:id', (req, res) => {
-    console.log("SPOT UPDATE RESPONSE")
+router.post('/', (req, res) => {
     userModel.findById(req.params.userId)
         .then((user) => {
-            const spot = user.spots.id(req.params.id)
-            console.log(spot)
-            spot.name = req.body.name,
-                spot.location = req.body.location,
-                spot.obstacle = req.body.obstacle
-            return user.save()
-                .then((user) => {
-                    console.log("SAVING USER")
-                    res.json(user)
+            user.spots.push(new spotModel())
+            user.save()
+                .then((data) => {
+                    console.log("DATA TO BE SENT", data)
+                    res.json(data)
                 })
-        }).catch(console.error)
+        })
+        .catch((err) => {
+            console.error(err)
+        })
 })
 
 

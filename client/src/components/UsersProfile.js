@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import axios from 'axios'
 import SpotsList from './SpotsList';
 import PhotosList from './PhotosList';
+import { Redirect } from 'react-router-dom'
 
 const UserProfilePhoto = styled.div`
 img{
@@ -20,13 +21,11 @@ flex-direction: column;
 align-items: center;
 justify-content: space-around;
 width: 25vw;
-height: 60vh;`
+height: 60vh;
+margin-left: 100px;`
 
 const UserProfileInfo = styled.div`
 display: flex;
-justify-content: space-between;
-align-content: right;
-width: 45vw;
 `
 
 class UserProfile extends Component {
@@ -35,10 +34,26 @@ class UserProfile extends Component {
             name: '',
         },
         redirect: false,
+        photosView: false,
+        spotsView: true,
     }
 
     componentDidMount() {
         this.getUser()
+    }
+
+    togglePhotoView = () => {
+        this.setState({
+            photosView: true,
+            spotsView: false
+        })
+    }
+
+    toggleSpotView = () => {
+        this.setState({
+            photosView: false,
+            spotsView: true
+        })
     }
 
     getUser = () => {
@@ -85,6 +100,9 @@ class UserProfile extends Component {
         this.setState({ user })
     }
     render() {
+        if (this.state.redirect) {
+            return (<Redirect to="/login" />)
+        }
         return (
             <div>
                 <NavBar />
@@ -92,10 +110,10 @@ class UserProfile extends Component {
                     <h1> {this.state.user.name}'s Page </h1>
                     User Profile Page
                     <div>
-                        <button>Spots</button><button>Photos</button>
+                        <button onClick={this.toggleSpotView}>Spots</button><button onClick={this.togglePhotoView}>Photos</button>
                     </div>
-                    <PhotosList {...this.props} />
-                    <SpotsList {...this.props} />
+                    {this.state.photosView ? (<PhotosList {...this.props} />) : null}
+                    {this.state.spotsView ? (<SpotsList {...this.props} />) : null}
                     <UserProfileContainer >
                         <div>
                             <UserProfilePhoto >

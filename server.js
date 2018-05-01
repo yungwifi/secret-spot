@@ -24,6 +24,9 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/client/build/index.html')
 })
 
+const PhotoController = require('./controllers/photoController')
+app.use('/api/users/:userId/photos', PhotoController)
+
 const UserController = require('./controllers/userController')
 app.use('/api/users', UserController)
 
