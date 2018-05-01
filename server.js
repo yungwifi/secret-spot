@@ -27,6 +27,9 @@ app.get('/', (req, res) => {
 const UserController = require('./controllers/userController')
 app.use('/api/users', UserController)
 
+const SpotController = require('./controllers/spotController')
+app.use('/api/users/:id/spots', SpotController)
+
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
     console.log("Magic happening on port " + PORT);

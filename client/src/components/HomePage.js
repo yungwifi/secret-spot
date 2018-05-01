@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Link, Router, Switch } from 'react-router-dom'
 import NavBar from './NavBar';
 import styled from 'styled-components'
+import header from '../public/images/header.jpg'
 
 const HomePageContainer = styled.div`
 margin-top: 55px;
-margin-left: 30px;`
+margin-left: 30px;
+background: url({header});`
 
 class HomePage extends Component {
     render() {

@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Link, Router, Switch } from 'react-router-dom'
-import NavBar from './NavBar';
 import styled from 'styled-components'
 import axios from 'axios'
 import Spots from './Spots'
@@ -39,12 +37,35 @@ class SpotsList extends Component {
                 console.log("RESPONSE FROM NEW SPOT", res.data)
                 this.setState({ spots: res.data.ideas })
             })
+            .catch((error) => {
+                console.log(error)
+            })
     }
+
+    handleChange = (e) => {
+        const spot = [...this.state.spots]
+        spot[e.target.name] = e.target.value
+        console.log("HANDLE CHANGE EVENT", e.target.value)
+        this.setState({ spot })
+    }
+
+    // updateIdea = (ideaId) => {
+    //     const userId = this.state.user._id
+    //     console.log(ideaId)
+    //     console.log("UPDATE IDEA BEING CALLED")
+    //     axios.patch(`/api/users/${userId}/ideas/${ideaId}`, { ideaId })
+    //         .then((res) => {
+    //             console.log("SETTING STATE", res.data)
+    //             this.componentDidMount()
+    //         })
+    //         .catch(console.error)
+    // }
+
     render() {
         return (
             <div>
-                <button> Add Spot </button>
-                <Spots user={this.state.user} spots={this.state.spots} />
+                <Spots user={this.state.user} spots={this.state.spots} handleChange={this.handleChange} />
+                <button onClick={this.addSpot}> Add Spot </button>
             </div>
         )
     }

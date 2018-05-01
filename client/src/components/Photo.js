@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Link, Router, Switch } from 'react-router-dom'
-import NavBar from './NavBar';
 import styled from 'styled-components'
-import axios from 'axios'
 
 const PhotoContainer = styled.div`
 img{

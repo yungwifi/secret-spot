@@ -2,19 +2,6 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import styled from 'styled-components'
 
-const Button = styled.button`
-height: 30px;
-width: 90px;
-background-color: lightblue;
-margin-right: 35px;
-border-radius: 10%;
-display: flex;
-flex-direction: row;
-justify-content: center;
-a{
-    text-decoration: none;
-}`
-
 class SignUp extends Component {
     state = {
         user: {
@@ -56,6 +43,10 @@ class SignUp extends Component {
                     <div>
                         <label htmlFor="password">Password</label>
                         <input onChange={this.handleChange} name="password" type="text" value={this.state.user.password} />
+                    </div>
+                    <div>
+                        <label htmlFor="profilePhoto">Profile Photo</label>
+                        <input onChange={this.handleChange} name="profilePhoto" type="text" value={this.state.user.profilePhoto} />
                     </div>
 
                     <button>Sign Up </button>
