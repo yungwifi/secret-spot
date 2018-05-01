@@ -35,36 +35,42 @@ class SpotsList extends Component {
         axios.post(url)
             .then((res) => {
                 console.log("RESPONSE FROM NEW SPOT", res.data)
-                this.setState({ spots: res.data.ideas })
+                this.setState({ spots: res.data.spots })
             })
             .catch((error) => {
                 console.log(error)
             })
     }
 
-    handleChange = (e) => {
-        const spot = [...this.state.spots]
-        spot[e.target.name] = e.target.value
-        console.log("HANDLE CHANGE EVENT", e.target.value)
-        this.setState({ spot })
+    handleChange = (updatedSpot, e) => {
+        const spots = [...this.state.spots]
+        const newSpot = spots.map((spot) => {
+            if (spot._id === updatedSpot._id) {
+                spot[e.target.name] = e.target.value
+            }
+            return spot
+        })
+        console.log("HANDLE CHANGE", e.target.value)
+        this.setState({ spots: newSpot })
     }
 
-    // updateIdea = (ideaId) => {
-    //     const userId = this.state.user._id
-    //     console.log(ideaId)
-    //     console.log("UPDATE IDEA BEING CALLED")
-    //     axios.patch(`/api/users/${userId}/ideas/${ideaId}`, { ideaId })
-    //         .then((res) => {
-    //             console.log("SETTING STATE", res.data)
-    //             this.componentDidMount()
-    //         })
-    //         .catch(console.error)
-    // }
+    updateSpot = (spotId) => {
+        const userId = this.state.user._id
+        const updatedSpot = this.state.spots
+        console.log("UPDATE USER BEING CALLED", userId)
+        axios.patch(`/api/users/${userId}/spots/${spotId}`, updatedSpot, { spotId })
+            .then((res) => {
+                console.log("SETTING STATE", res.data)
+                this.setState({ spots: this.state.spots })
+            })
+            .catch(console.error)
+    }
+
 
     render() {
         return (
             <div>
-                <Spots user={this.state.user} spots={this.state.spots} handleChange={this.handleChange} />
+                <Spots user={this.state.user} spots={this.state.spots} handleChange={this.handleChange} updateSpot={this.updateSpot} />
                 <button onClick={this.addSpot}> Add Spot </button>
             </div>
         )

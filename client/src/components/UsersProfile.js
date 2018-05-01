@@ -8,21 +8,25 @@ import PhotosList from './PhotosList';
 const UserProfilePhoto = styled.div`
 img{
  width: 165px;
- border-radius: 50%;   
+ border-radius: 50%;  
+  
 }`
 
 const UserProfileContainer = styled.div`
 display: flex;
 border: solid black 1px;
 box-shadow: 2px 2px 2px rgba(0,0,0,0.5);
-align-items: column;
-width: 30vw;
+flex-direction: column;
+align-items: center;
+justify-content: space-around;
+width: 25vw;
 height: 60vh;`
 
 const UserProfileInfo = styled.div`
 display: flex;
-justify-content: column;
+justify-content: space-between;
 align-content: right;
+width: 45vw;
 `
 
 class UserProfile extends Component {

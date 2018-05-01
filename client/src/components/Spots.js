@@ -12,11 +12,14 @@ class Spots extends Component {
                 <SpotContainer >
                     <div key={i}>
                         <div> Spot Name: <input type="text" name="name" value={spot.name}
-                            onChange={this.props.handleChange} /> </div>
+                            onChange={(e) => { this.props.handleChange(spot, e) }}
+                            onBlur={() => this.props.updateSpot(spot._id)} /> </div>
                         <div> Location: <input type="text" name="location" value={spot.location}
-                            onChange={this.props.handleChange} /></div>
+                            onChange={(e) => { this.props.handleChange(spot, e) }}
+                            onBlur={() => this.props.updateSpot(spot._id)} /></div>
                         <div> Obstacle: <input type="text" name="obstacle" value={spot.obstacle}
-                            onChange={this.props.handleChange} /></div>
+                            onChange={(e) => { this.props.handleChange(spot, e) }}
+                            onBlur={() => this.props.updateSpot(spot._id)} /></div>
                     </div>
                 </SpotContainer>
             )

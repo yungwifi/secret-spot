@@ -28,7 +28,7 @@ const UserController = require('./controllers/userController')
 app.use('/api/users', UserController)
 
 const SpotController = require('./controllers/spotController')
-app.use('/api/users/:id/spots', SpotController)
+app.use('/api/users/:userId/spots', SpotController)
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {

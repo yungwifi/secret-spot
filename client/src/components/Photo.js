@@ -5,6 +5,8 @@ const PhotoContainer = styled.div`
 img{
     width: 175px;
 }
+display: flex;
+flex-direction: row;
 `
 
 class Photos extends Component {
