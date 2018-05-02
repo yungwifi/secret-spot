@@ -65,11 +65,23 @@ class SpotsList extends Component {
             .catch(console.error)
     }
 
+    deleteSpot = (spotId) => {
+        const userId = this.state.user._id
+        const url = `/api/users/${userId}/spots/${spotId}`
+        console.log("DELETE SPOT ROUTE BEING CALLED", url)
+        axios.delete(url)
+            .then((res) => {
+                console.log("RESPONSE FROM SPOT DELETING", res.data)
+                this.componentDidMount()
+            }).catch(console.error)
+    }
 
     render() {
         return (
             <div>
-                <Spots user={this.state.user} spots={this.state.spots} handleChange={this.handleChange} updateSpot={this.updateSpot} />
+                <Spots user={this.state.user} spots={this.state.spots}
+                    handleChange={this.handleChange} updateSpot={this.updateSpot}
+                    deleteSpot={this.deleteSpot} />
                 <button onClick={this.addSpot}> Add Spot </button>
             </div>
         )

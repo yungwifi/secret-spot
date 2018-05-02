@@ -6,7 +6,8 @@ class SignUp extends Component {
     state = {
         user: {
             userName: '',
-            password: ''
+            password: '',
+            profilePhoto: ''
         }
     }
 
@@ -49,7 +50,7 @@ class SignUp extends Component {
                         <input onChange={this.handleChange} name="profilePhoto" type="text" value={this.state.user.profilePhoto} />
                     </div>
 
-                    <button>Sign Up </button>
+                    <button type="submit">Sign Up </button>
                 </form>
             </div>
         )

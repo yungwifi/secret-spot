@@ -131,6 +131,7 @@ class UserProfile extends Component {
                                         onChange={this.handleChange} onBlur={() => this.updateUser()} /> </div>
                                     <div> Bio: <textarea type="text" name="bio" value={this.state.user.bio}
                                         onChange={this.handleChange} onBlur={() => this.updateUser()} />  </div>
+
                                 </div>
                             </UserProfileInfo>
                         </div>

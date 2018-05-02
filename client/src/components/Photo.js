@@ -16,6 +16,7 @@ class Photos extends Component {
                 <div key={i}>
                     <img src={photo.image} />
                     <div> {photo.caption}</div>
+                    <button onClick={() => this.props.deletePhoto(photo._id)}> Delete Photo </button>
                 </div>
             )
         })

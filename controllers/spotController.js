@@ -20,6 +20,22 @@ router.post('/', (req, res) => {
 })
 
 
+router.delete('/:id', (req, res) => {
+    userModel.findById(req.params.userId)
+        .then((user) => {
+            user.update({
+                $pull:
+                    { spots: { _id: req.params.id } }
+            })
+                .then((data) => {
+                    console.log("DELETE SPOT ROUTE IN EXPRESS")
+                    res.json(data)
+                })
+                .catch(console.error)
+        })
+        .catch(console.error)
+})
+
 router.patch('/:id', (req, res) => {
     console.log("SPOT UPDATE RESPONSE")
     userModel.findById(req.params.userId)

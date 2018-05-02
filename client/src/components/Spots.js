@@ -20,6 +20,7 @@ class Spots extends Component {
                         <div> Obstacle: <input type="text" name="obstacle" value={spot.obstacle}
                             onChange={(e) => { this.props.handleChange(spot, e) }}
                             onBlur={() => this.props.updateSpot(spot._id)} /></div>
+                        <button onClick={() => this.props.deleteSpot(spot._id)}> Delete Spot </button>
                     </div>
                 </SpotContainer>
             )

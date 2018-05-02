@@ -19,12 +19,10 @@ const SpotSchema = new Schema({
 const PhotoSchema = new Schema({
     image: {
         type: String,
-        default: "Image URL Goes Here"
     },
     caption: {
         type: String,
-        default: "Why should I care about your stupid photos?"
-    },
+    }
 })
 
 const UserSchema = new Schema({
