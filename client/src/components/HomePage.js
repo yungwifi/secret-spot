@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom'
 
 const HomePageContainer = styled.div`
 background-image: url('https://i.imgur.com/WKPOLId.jpg');
-background-color: #FFD404;
 background-attachment: fixed;
 min-height: 120vh;
 height: 100vh;
@@ -16,18 +15,18 @@ position: relative;
 background-position: 30% 50%;
 height: 100%;
 margin: 0 auto;
-h1 {
+h1{
     width: 100vw;
     padding-top: 14vh;
     display: flex;
     justify-content: center;
     color: whitesmoke;
-}
-button{
+}`
+
+const ButtonStyle = styled.div`
     display: flex;
     justify-content: center;
-}
-`
+    width: 100vw;`
 
 
 class HomePage extends Component {
@@ -37,7 +36,9 @@ class HomePage extends Component {
                 <NavBar />
                 <HomePageContainer >
                     <h1> SHRED IT </h1>
-                    <Button> <Link to="/login"> ESKEETIT </Link> </Button>
+                    <ButtonStyle>
+                        <button> <Link to="/login"> ESKEETIT </Link> </button>
+                    </ButtonStyle>
                 </HomePageContainer>
             </div>
 
