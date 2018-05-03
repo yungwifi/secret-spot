@@ -48,13 +48,26 @@ class PhotosList extends Component {
             }).catch(console.error)
     }
 
+    addPhoto = (newPhoto) => {
+        const userId = this.props.match.params.id
+        console.log("ADD PHOTO ROUTE BEING CALLED", userId)
+        axios.post(`/api/users/${userId}/photos`, newPhoto)
+            .then((res) => {
+                console.log("RESPONSE FROM NEW PHOTO", res.data)
+                this.setState({ photos: res.data.photos })
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+    }
+
     render() {
         return (
             <div>
-                <Photos user={this.state.user} photos={this.state.photos} deletePhoto={this.deletePhoto} />
-                {this.state.addPhotoView ? (<AddPhoto addPhoto={this.addPhoto}
-                    user={this.state.user} photos={this.state.photos} handleChange={this.handleChange} />) : null}
+                <h4> Photo List </h4>
+                {this.state.addPhotoView ? (<AddPhoto addPhoto={this.addPhoto} />) : null}
                 <button onClick={this.toggleAddPhoto}> Add Photo </button>
+                <Photos user={this.state.user} photos={this.state.photos} deletePhoto={this.deletePhoto} />
             </div>
         )
     }

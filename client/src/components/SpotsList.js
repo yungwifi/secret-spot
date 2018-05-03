@@ -3,6 +3,9 @@ import styled from 'styled-components'
 import axios from 'axios'
 import Spots from './Spots'
 
+const SpotListContainer = styled.div`
+`
+
 class SpotsList extends Component {
     state = {
         user: {},
@@ -79,10 +82,11 @@ class SpotsList extends Component {
     render() {
         return (
             <div>
+                <h4> Skate Spots  </h4>
+                <button onClick={this.addSpot}> Add Spot </button>
                 <Spots user={this.state.user} spots={this.state.spots}
                     handleChange={this.handleChange} updateSpot={this.updateSpot}
                     deleteSpot={this.deleteSpot} />
-                <button onClick={this.addSpot}> Add Spot </button>
             </div>
         )
     }

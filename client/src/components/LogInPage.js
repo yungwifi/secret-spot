@@ -5,6 +5,13 @@ import styled from 'styled-components'
 import axios from 'axios'
 import SignUp from './SignUp';
 
+const LoginContainer = styled.div`
+display: flex;
+flex-direction: row;
+justify-content: space-around;
+margin-top: 25px;
+margin-left: 35px;`
+
 class LogInPage extends Component {
     state = {
         users: []
@@ -35,9 +42,13 @@ class LogInPage extends Component {
         return (
             <div>
                 <NavBar />
-                <h1> Skaters </h1>
-                {userLinks}
-                <SignUp />
+                <LoginContainer >
+                    <div>
+                        <h1> Skaters </h1>
+                        {userLinks}
+                    </div>
+                    <SignUp />
+                </LoginContainer>
             </div>
 
         );

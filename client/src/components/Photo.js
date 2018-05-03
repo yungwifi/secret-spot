@@ -3,10 +3,12 @@ import styled from 'styled-components'
 
 const PhotoContainer = styled.div`
 img{
-    width: 175px;
+    width: 15vw;
+    height: 30vh;
 }
 display: flex;
 flex-direction: row;
+border: solid black 1px;
 `
 
 class Photos extends Component {
@@ -14,18 +16,19 @@ class Photos extends Component {
         const photosList = this.props.photos.map((photo, i) => {
             return (
                 <div key={i}>
-                    <img src={photo.image} />
-                    <div> {photo.caption}</div>
-                    <button onClick={() => this.props.deletePhoto(photo._id)}> Delete Photo </button>
+                    <PhotoContainer >
+                        <img src={photo.image} />
+                        <div> {photo.caption}</div>
+                    </PhotoContainer>
+                    <div>
+                        <button onClick={() => this.props.deletePhoto(photo._id)}> Delete Photo </button>
+                    </div>
                 </div>
             )
         })
         return (
             <div>
-                <h4> Photo List </h4>
-                <PhotoContainer >
-                    {photosList}
-                </PhotoContainer>
+                {photosList}
             </div>
         )
     }

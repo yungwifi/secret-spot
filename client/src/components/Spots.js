@@ -3,7 +3,10 @@ import styled from 'styled-components'
 
 const SpotContainer = styled.div`
 border: solid black 1px;
-margin: 10px;`
+margin: 10px;
+width: 40vw;
+padding: 15px;
+box-shadow: 2px 2px 2px rgba(0,0,0,0.5);`
 
 class Spots extends Component {
     render() {
@@ -27,7 +30,6 @@ class Spots extends Component {
         })
         return (
             <div>
-                <h4> Spot List </h4>
                 {spotsList}
             </div>
         )

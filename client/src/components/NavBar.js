@@ -29,7 +29,7 @@ class NavBar extends Component {
         return (
             <NavContainer>
                 <Brand >
-                    <Link to="/"><h1> Secret Spot </h1></Link>
+                    <Link to="/"><h3> Secret Spot </h3></Link>
                 </Brand>
                 <NavLinks>
                     <div>

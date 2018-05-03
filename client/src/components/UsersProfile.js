@@ -6,11 +6,21 @@ import SpotsList from './SpotsList';
 import PhotosList from './PhotosList';
 import { Redirect } from 'react-router-dom'
 
+const SpotPhotoToggle = styled.div`
+display: flex;
+justify-content: right;
+width: 100vw;`
+
+const ProfileDashboard = styled.div`
+display: flex;
+flex-direction: row;
+justify-content: space-around;`
+
 const UserProfilePhoto = styled.div`
+margin-top: 25px;
 img{
  width: 165px;
  border-radius: 50%;  
-  
 }`
 
 const UserProfileContainer = styled.div`
@@ -22,11 +32,23 @@ align-items: center;
 justify-content: space-around;
 width: 25vw;
 height: 60vh;
-margin-left: 100px;`
+margin-left: 100px;
+height: 100vh;`
 
 const UserProfileInfo = styled.div`
 display: flex;
-`
+justify-content: center;
+align-items: center;
+width: 25vw;
+height: 30vh;
+input{
+   border: none;
+}
+textarea{
+    border: none;
+    height: 10px;
+    width: 20px;
+}`
 
 class UserProfile extends Component {
     state = {
@@ -107,36 +129,38 @@ class UserProfile extends Component {
             <div>
                 <NavBar />
                 <div>
-                    <h1> {this.state.user.name}'s Page </h1>
-                    User Profile Page
-                    <div>
-                        <button onClick={this.toggleSpotView}>Spots</button><button onClick={this.togglePhotoView}>Photos</button>
-                    </div>
-                    {this.state.photosView ? (<PhotosList {...this.props} />) : null}
-                    {this.state.spotsView ? (<SpotsList {...this.props} />) : null}
-                    <UserProfileContainer >
+                    <h4> {this.state.user.name}'s Page </h4>
+                    <SpotPhotoToggle >
                         <div>
-                            <UserProfilePhoto >
-                                <img src={this.state.user.profilePhoto} />
-                            </UserProfilePhoto>
+                            <button onClick={this.toggleSpotView}>Spots</button><button onClick={this.togglePhotoView}>Photos</button>
                         </div>
-                        <div>
-                            <UserProfileInfo>
-                                <div className="userInfo">
-                                    <div> Name: <input type="text" name="name" value={this.state.user.name}
-                                        onChange={this.handleChange} onBlur={() => this.updateUser()} /> </div>
-                                    <div> Stance: <input type="text" name="stance" value={this.state.user.stance}
-                                        onChange={this.handleChange} onBlur={() => this.updateUser()} />  </div>
-                                    <div> Location: <input type="text" name="location" value={this.state.user.location}
-                                        onChange={this.handleChange} onBlur={() => this.updateUser()} /> </div>
-                                    <div> Bio: <textarea type="text" name="bio" value={this.state.user.bio}
-                                        onChange={this.handleChange} onBlur={() => this.updateUser()} />  </div>
+                    </SpotPhotoToggle>
+                    <ProfileDashboard >
+                        {this.state.photosView ? (<PhotosList {...this.props} />) : null}
+                        {this.state.spotsView ? (<SpotsList {...this.props} />) : null}
+                        <UserProfileContainer >
+                            <div>
+                                <UserProfilePhoto >
+                                    <img src={this.state.user.profilePhoto} />
+                                </UserProfilePhoto>
+                            </div>
+                            <div>
+                                <UserProfileInfo>
+                                    <div className="userInfo">
+                                        <div> Name: <input type="text" name="name" value={this.state.user.name}
+                                            onChange={this.handleChange} onBlur={() => this.updateUser()} /> </div>
+                                        <div> Stance: <input type="text" name="stance" value={this.state.user.stance}
+                                            onChange={this.handleChange} onBlur={() => this.updateUser()} />  </div>
+                                        <div> Location: <input type="text" name="location" value={this.state.user.location}
+                                            onChange={this.handleChange} onBlur={() => this.updateUser()} /> </div>
 
-                                </div>
-                            </UserProfileInfo>
-                        </div>
-                    </UserProfileContainer>
-                    <button onClick={this.deleteUser}> Delete {this.state.user.userName}'s Profile </button>
+                                    </div>
+                                </UserProfileInfo>
+                            </div>
+                            <button onClick={this.deleteUser}> Delete {this.state.user.userName}'s Profile </button>
+                        </UserProfileContainer>
+                    </ProfileDashboard>
+
                 </div>
             </div>
         )
