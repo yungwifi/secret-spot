@@ -3,9 +3,6 @@ import styled from 'styled-components'
 import axios from 'axios'
 import Spots from './Spots'
 
-const SpotListContainer = styled.div`
-`
-
 class SpotsList extends Component {
     state = {
         user: {},

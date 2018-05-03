@@ -5,11 +5,6 @@ import Photos from './Photo'
 import AddPhoto from './AddPhoto';
 import { Button, Slider, Slide } from 'react-materialize'
 
-const PhotosContainer = styled.div`
-display: flex;
-justify-content: space-around;
-height: 50vh;`
-
 class PhotosList extends Component {
     state = {
         user: {},
@@ -59,9 +54,7 @@ class PhotosList extends Component {
                 <h4> Photo List </h4>
                 {this.state.addPhotoView ? (<AddPhoto getUser={this.getUser} userId={this.state.user._id} />) : null}
                 <button className="small" onClick={this.toggleAddPhoto}> Add Photo </button>
-                <PhotosContainer >
-                    <Photos user={this.state.user} photos={this.state.photos} deletePhoto={this.deletePhoto} />
-                </PhotosContainer>
+                <Photos user={this.state.user} photos={this.state.photos} deletePhoto={this.deletePhoto} />
             </div>
         )
     }
