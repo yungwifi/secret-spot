@@ -21,8 +21,26 @@ class AddPhoto extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
-        console.log("HANDLE SUBMIT")
-        this.props.addPhoto({ photos: this.state.photos })
+        const newPhoto = {
+            image: this.state.photos.image,
+            caption: this.state.photos.caption
+        }
+        console.log("HANDLE SUBMIT", newPhoto)
+        this.addPhoto(newPhoto)
+    }
+
+    addPhoto = async (newPhoto) => {
+        const userId = this.props.userId
+        console.log("ADD PHOTO ROUTE BEING CALLED", userId)
+        axios.post(`/api/users/${userId}/photos`, newPhoto)
+            .then((res) => {
+                console.log("RESPONSE FROM NEW PHOTO", res.data)
+                this.setState({ photos: res.data.photos })
+                this.props.getUser()
+            })
+            .catch((error) => {
+                console.log(error)
+            })
     }
 
     render() {
