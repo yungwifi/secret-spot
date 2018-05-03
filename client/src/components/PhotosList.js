@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import axios from 'axios'
 import Photos from './Photo'
 import AddPhoto from './AddPhoto';
-
+import { Button, Slider, Slide } from 'react-materialize'
 
 class PhotosList extends Component {
     state = {
@@ -53,7 +53,7 @@ class PhotosList extends Component {
             <div>
                 <h4> Photo List </h4>
                 {this.state.addPhotoView ? (<AddPhoto getUser={this.getUser} userId={this.state.user._id} />) : null}
-                <button onClick={this.toggleAddPhoto}> Add Photo </button>
+                <Button onClick={this.toggleAddPhoto}> Add Photo </Button>
                 <Photos user={this.state.user} photos={this.state.photos} deletePhoto={this.deletePhoto} />
             </div>
         )

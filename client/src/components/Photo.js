@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components'
+import { Button } from 'react-materialize'
 
 const PhotoContainer = styled.div`
 img{
@@ -8,7 +9,7 @@ img{
 }
 display: flex;
 flex-direction: row;
-border: solid black 1px;
+justify-content: space-between;
 `
 
 class Photos extends Component {
@@ -17,12 +18,13 @@ class Photos extends Component {
             return (
                 <div key={i}>
                     <PhotoContainer >
-                        <img src={photo.image} />
+                        <img className="responsive-img" src={photo.image} />
                         <div> {photo.caption}</div>
                     </PhotoContainer>
                     <div>
-                        <button onClick={() => this.props.deletePhoto(photo._id)}> Delete Photo </button>
+                        <Button onClick={() => this.props.deletePhoto(photo._id)}> Delete Photo </Button>
                     </div>
+
                 </div>
             )
         })

@@ -5,10 +5,13 @@ import axios from 'axios'
 import SpotsList from './SpotsList';
 import PhotosList from './PhotosList';
 import { Redirect } from 'react-router-dom'
+import { Button } from 'react-materialize'
+
+
 
 const SpotPhotoToggle = styled.div`
 display: flex;
-justify-content: right;
+align-items: right;
 width: 100vw;`
 
 const ProfileDashboard = styled.div`
@@ -21,6 +24,9 @@ margin-top: 25px;
 img{
  width: 165px;
  border-radius: 50%;  
+}
+input:hover{
+    background-color: #5C6B8B;
 }`
 
 const UserProfileContainer = styled.div`
@@ -157,7 +163,7 @@ class UserProfile extends Component {
                                     </div>
                                 </UserProfileInfo>
                             </div>
-                            <button onClick={this.deleteUser}> Delete {this.state.user.userName}'s Profile </button>
+                            <Button className="danger" onClick={this.deleteUser}> Delete {this.state.user.userName}'s Profile </Button>
                         </UserProfileContainer>
                     </ProfileDashboard>
 

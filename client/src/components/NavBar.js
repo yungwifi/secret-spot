@@ -7,12 +7,17 @@ display: flex;
 align-items: center;
 box-shadow: 0px 10px 10px rgba(0,0,0,0.5);
 justify-content: space-between;
+background-color: #D0B682;
+position: relative;
 `
 
 const Brand = styled.div`
 display: flex;
 justify-content: left;
-margin-left: 60px;`
+margin-left: 60px;
+a{
+    color: #452E00;
+}`
 
 const NavLinks = styled.div`
 display: flex;
@@ -21,6 +26,13 @@ margin-right: 15px;
 justify-content: space-around;
 a{
     text-decoration: none;
+    color: #452E00;
+}
+a:hover{
+    color: white;
+    box-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+    padding: 5px;
+    border-radius: 2px;
 }
 `
 
@@ -33,13 +45,13 @@ class NavBar extends Component {
                 </Brand>
                 <NavLinks>
                     <div>
-                        <Link to='/login'>Login</Link>
+                        <Link to='/login'>Users</Link>
                     </div>
                     <div>
                         <div>|</div>
                     </div>
                     <div>
-                        <Link to='/login'>Sign Up</Link>
+                        <Link to='/signup'>Sign Up</Link>
                     </div>
                 </NavLinks>
             </NavContainer>

@@ -9,8 +9,16 @@ const LoginContainer = styled.div`
 display: flex;
 flex-direction: row;
 justify-content: space-around;
-margin-top: 25px;
-margin-left: 35px;`
+background-color: #949089;
+padding-top: 30px;
+padding-bottom: 30px;
+a{
+    text-decoration: none;
+    color: #452E00;
+}
+a:hover{
+    color: white;
+}`
 
 class LogInPage extends Component {
     state = {
@@ -44,7 +52,7 @@ class LogInPage extends Component {
                 <NavBar />
                 <LoginContainer >
                     <div>
-                        <h1> Skaters </h1>
+                        <h3> Skaters </h3>
                         {userLinks}
                     </div>
                     <SignUp />

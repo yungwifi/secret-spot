@@ -1,6 +1,13 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import styled from 'styled-components'
+import { Button } from 'react-materialize'
+
+const FormStyle = styled.div`
+input{
+    color: white;
+    width: 30vw;
+}`
 
 class SignUp extends Component {
     state = {
@@ -35,22 +42,22 @@ class SignUp extends Component {
     render() {
         return (
             <div>
-                <h1>Sign-Up</h1>
-                <form onSubmit={this.handleSignUp}>
+                <h3>Sign-Up</h3>
+                <form className="brown" onSubmit={this.handleSignUp}>
                     <div>
-                        <label htmlFor="userName">User Name</label>
+                        <label className="white-text" htmlFor="userName">User Name</label>
                         <input onChange={this.handleChange} name="userName" type="text" value={this.state.user.userName} />
                     </div>
                     <div>
-                        <label htmlFor="password">Password</label>
+                        <label className="white-text" htmlFor="password">Password</label>
                         <input onChange={this.handleChange} name="password" type="text" value={this.state.user.password} />
                     </div>
                     <div>
-                        <label htmlFor="profilePhoto">Profile Photo</label>
+                        <label className="white-text" htmlFor="profilePhoto">Profile Photo</label>
                         <input onChange={this.handleChange} name="profilePhoto" type="text" value={this.state.user.profilePhoto} />
                     </div>
 
-                    <button type="submit">Sign Up </button>
+                    <Button className="indigo darken-1" type="submit">Sign Up </Button>
                 </form>
             </div>
         )
