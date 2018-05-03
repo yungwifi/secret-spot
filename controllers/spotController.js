@@ -7,7 +7,7 @@ const userModel = require("../models/user")
 router.post('/', (req, res) => {
     userModel.findById(req.params.userId)
         .then((user) => {
-            user.spots.push(new spotModel())
+            user.spots.unshift(new spotModel())
             user.save()
                 .then((data) => {
                     console.log("DATA TO BE SENT", data)

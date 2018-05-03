@@ -3,13 +3,20 @@ import styled from 'styled-components'
 import { Button } from 'react-materialize'
 
 const PhotoContainer = styled.div`
+display: flex;
+justify-content: space-around;
+flex-direction: column;`
+
+const PhotoInfoContainer = styled.div`
 img{
     width: 15vw;
     height: 30vh;
 }
 display: flex;
 flex-direction: row;
-justify-content: space-between;
+margin: 10px;
+width: 40vw;
+padding: 15px;
 `
 
 class Photos extends Component {
@@ -17,12 +24,12 @@ class Photos extends Component {
         const photosList = this.props.photos.map((photo, i) => {
             return (
                 <div key={i}>
-                    <PhotoContainer >
+                    <PhotoInfoContainer >
                         <img className="responsive-img" src={photo.image} />
                         <div> {photo.caption}</div>
-                    </PhotoContainer>
+                    </PhotoInfoContainer>
                     <div>
-                        <Button onClick={() => this.props.deletePhoto(photo._id)}> Delete Photo </Button>
+                        <button onClick={() => this.props.deletePhoto(photo._id)}> Delete Photo </button>
                     </div>
 
                 </div>
@@ -30,7 +37,9 @@ class Photos extends Component {
         })
         return (
             <div>
-                {photosList}
+                <PhotoContainer >
+                    {photosList}
+                </PhotoContainer>
             </div>
         )
     }

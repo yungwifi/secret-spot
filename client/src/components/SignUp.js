@@ -7,7 +7,13 @@ const FormStyle = styled.div`
 input{
     color: white;
     width: 30vw;
-}`
+}
+width: 40vw;`
+
+const InnerFormStyle = styled.div`
+display: flex;
+flex-direction: column;
+justify-content: center;`
 
 class SignUp extends Component {
     state = {
@@ -43,22 +49,26 @@ class SignUp extends Component {
         return (
             <div>
                 <h3>Sign-Up</h3>
-                <form className="brown" onSubmit={this.handleSignUp}>
-                    <div>
-                        <label className="white-text" htmlFor="userName">User Name</label>
-                        <input onChange={this.handleChange} name="userName" type="text" value={this.state.user.userName} />
-                    </div>
-                    <div>
-                        <label className="white-text" htmlFor="password">Password</label>
-                        <input onChange={this.handleChange} name="password" type="text" value={this.state.user.password} />
-                    </div>
-                    <div>
-                        <label className="white-text" htmlFor="profilePhoto">Profile Photo</label>
-                        <input onChange={this.handleChange} name="profilePhoto" type="text" value={this.state.user.profilePhoto} />
-                    </div>
+                <FormStyle >
+                    <form className="brown lighten-2" onSubmit={this.handleSignUp}>
 
-                    <Button className="indigo darken-1" type="submit">Sign Up </Button>
-                </form>
+                        <InnerFormStyle >
+                            <label className="white-text" htmlFor="userName">User Name</label>
+                            <input onChange={this.handleChange} name="userName" type="text" value={this.state.user.userName} />
+                        </InnerFormStyle>
+
+                        <InnerFormStyle >
+                            <label className="white-text" htmlFor="password">Password</label>
+                            <input onChange={this.handleChange} name="password" type="text" value={this.state.user.password} />
+                        </InnerFormStyle>
+                        <InnerFormStyle >
+                            <label className="white-text" htmlFor="profilePhoto">Profile Photo</label>
+                            <input onChange={this.handleChange} name="profilePhoto" type="text" value={this.state.user.profilePhoto} />
+                        </InnerFormStyle>
+
+                        <Button className="indigo darken-1" type="submit">Sign Up </Button>
+                    </form>
+                </FormStyle>
             </div>
         )
     }

@@ -3,10 +3,15 @@ import NavBar from './NavBar';
 import styled from 'styled-components'
 
 const HomePageContainer = styled.div`
-margin-top: 55px;
-margin-left: 30px;
-background: url("https://i.imgur.com/WKPOLId.jpg");
-width: 100vw;`
+width: 100vw;
+height: 100vh;`
+
+const HomePageHeader = styled.div`
+background-image: url("https://i.imgur.com/WKPOLId.jpg");
+width: 100%;
+height: 100%;
+size: 100px;
+`
 
 class HomePage extends Component {
     render() {
@@ -14,6 +19,9 @@ class HomePage extends Component {
             <div>
                 <NavBar />
                 <HomePageContainer >
+                    <HomePageHeader >
+                        <h1> SHRED IT </h1>
+                    </HomePageHeader>
                 </HomePageContainer>
             </div>
 

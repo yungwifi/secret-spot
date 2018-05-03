@@ -5,7 +5,7 @@ import styled from 'styled-components'
 const NavContainer = styled.div`
 display: flex;
 align-items: center;
-box-shadow: 0px 10px 10px rgba(0,0,0,0.5);
+box-shadow: 0px 3px 2px rgba(0,0,0,0.5);
 justify-content: space-between;
 background-color: #D0B682;
 position: relative;

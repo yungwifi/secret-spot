@@ -5,14 +5,19 @@ import axios from 'axios'
 import SpotsList from './SpotsList';
 import PhotosList from './PhotosList';
 import { Redirect } from 'react-router-dom'
-import { Button } from 'react-materialize'
-
-
+import { Button, Modal } from 'react-materialize'
 
 const SpotPhotoToggle = styled.div`
 display: flex;
-align-items: right;
-width: 100vw;`
+justify-content: center;
+width: 100vw;
+height: 5vh;
+padding: 20px auto;
+margin-top: 20px;
+margin-bottom: 20px;
+button{
+ width: 20vw;   
+}`
 
 const ProfileDashboard = styled.div`
 display: flex;
@@ -135,11 +140,8 @@ class UserProfile extends Component {
             <div>
                 <NavBar />
                 <div>
-                    <h4> {this.state.user.name}'s Page </h4>
                     <SpotPhotoToggle >
-                        <div>
-                            <button onClick={this.toggleSpotView}>Spots</button><button onClick={this.togglePhotoView}>Photos</button>
-                        </div>
+                        <button onClick={this.toggleSpotView}>Spots</button><button onClick={this.togglePhotoView}>Photos</button>
                     </SpotPhotoToggle>
                     <ProfileDashboard >
                         {this.state.photosView ? (<PhotosList {...this.props} />) : null}
@@ -163,7 +165,15 @@ class UserProfile extends Component {
                                     </div>
                                 </UserProfileInfo>
                             </div>
-                            <Button className="danger" onClick={this.deleteUser}> Delete {this.state.user.userName}'s Profile </Button>
+                            <Modal
+                                header='Modal Header'
+                                trigger={<Button>Delete Profile</Button>}>
+                                <div>
+                                    <p> Are you sure you want to delete your profile? </p>
+                                    <Button className="danger" onClick={this.deleteUser}> Delete {this.state.user.userName}'s Profile </Button>
+                                </div>
+                            </Modal>
+
                         </UserProfileContainer>
                     </ProfileDashboard>
 
