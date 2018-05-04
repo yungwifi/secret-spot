@@ -34,7 +34,7 @@ class AddPhoto extends Component {
         console.log("ADD PHOTO ROUTE BEING CALLED", userId)
         axios.post(`/api/users/${userId}/photos`, newPhoto)
             .then((res) => {
-                console.log("RESPONSE FROM NEW PHOTO", res.data)
+                console.log("RESPONSE FROM NEW PHOTO BEING ADDED", res.data)
                 this.setState({ photos: res.data.photos })
                 this.props.getUser()
             })

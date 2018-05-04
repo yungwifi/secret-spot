@@ -40,7 +40,7 @@ class SignUp extends Component {
     }
 
     handleSignUp = () => {
-        console.log("About to make API Call", this.state.user)
+        console.log("MAKING API CALL", this.state.user)
         axios.post('/api/users', { user: this.state.user })
             .then((res) => {
                 console.log(res.data)
@@ -55,7 +55,7 @@ class SignUp extends Component {
     handleChange = (e) => {
         const user = { ...this.state.user }
         user[e.target.name] = e.target.value
-        console.log("Handle Change Event", e.target.value)
+        console.log("HANDLE CHANGE EVENT", e.target.value)
         this.setState({ user })
     }
 

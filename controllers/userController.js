@@ -28,7 +28,7 @@ router.post('/', (req, res) => {
 
 //GET Specific User
 router.get('/:id', (req, res) => {
-    console.log("Server getting User from DB")
+    console.log("SERVER GETTING USER FROM DB")
     userModel.findById(req.params.id)
         .then((user) => {
             res.json(user)
@@ -50,7 +50,7 @@ router.delete('/:id', (req, res) => {
 
 //Update a User 
 router.patch('/:id', (req, res) => {
-    // console.log("UPDATE ROUTE HITTING SERVER", req.body)
+    console.log("UPDATE ROUTE HITTING SERVER", req.body)
     userModel.findByIdAndUpdate(req.params.id, req.body)
         .then((user) => {
             res.json(req.body)
