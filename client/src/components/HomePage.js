@@ -4,6 +4,20 @@ import styled from 'styled-components'
 import { Button } from 'react-materialize'
 import { Link } from 'react-router-dom'
 
+const HomeButton = styled.div`
+a{
+    padding: 5px;
+    border-radius: 3px;
+    background-color: whitesmoke;
+    color: #452E00; 
+    width: 20vw;
+    text-align: center;
+    font-size: 20px;
+}
+a:hover{
+    background-color: #D0B682;
+}`
+
 const HomePageContainer = styled.div`
 background-image: url('https://i.imgur.com/WKPOLId.jpg');
 background-attachment: fixed;
@@ -11,8 +25,6 @@ min-height: 120vh;
 height: 100vh;
 background-size: cover;
 background-repeat: no-repeat;
-position: relative;
-background-position: 30% 50%;
 height: 100%;
 margin: 0 auto;
 h1{
@@ -37,7 +49,7 @@ class HomePage extends Component {
                 <HomePageContainer >
                     <h1> SHRED IT </h1>
                     <ButtonStyle>
-                        <button> <Link to="/login"> ESKEETIT </Link> </button>
+                        <HomeButton> <Link to="/login"> ESKEETIT </Link> </HomeButton>
                     </ButtonStyle>
                 </HomePageContainer>
             </div>

@@ -7,6 +7,14 @@ import PhotosList from './PhotosList';
 import { Redirect } from 'react-router-dom'
 import { Button, Modal } from 'react-materialize'
 
+const DeleteButton = styled.div`
+padding: 5px;
+border-radius: 3px;
+background-color: red;
+width: 35vw;
+text-align: center;
+font-size: 20px;`
+
 const SpotPhotoToggle = styled.div`
 display: flex;
 justify-content: center;
@@ -21,7 +29,7 @@ button{
 
 const ProfileDashboard = styled.div`
 display: flex;
-flex-direction: row;
+flex-direction: row-reverse;
 justify-content: space-around;`
 
 const UserProfilePhoto = styled.div`
@@ -137,16 +145,14 @@ class UserProfile extends Component {
             return (<Redirect to="/login" />)
         }
         return (
-            <div>
+            <div className="grey lighten-2">
                 <NavBar />
                 <div>
                     <SpotPhotoToggle >
                         <button onClick={this.toggleSpotView}>Spots</button><button onClick={this.togglePhotoView}>Photos</button>
                     </SpotPhotoToggle>
                     <ProfileDashboard >
-                        {this.state.photosView ? (<PhotosList {...this.props} />) : null}
-                        {this.state.spotsView ? (<SpotsList {...this.props} />) : null}
-                        <UserProfileContainer >
+                        <UserProfileContainer className="white">
                             <div>
                                 <UserProfilePhoto >
                                     <img src={this.state.user.profilePhoto} />
@@ -166,15 +172,18 @@ class UserProfile extends Component {
                                 </UserProfileInfo>
                             </div>
                             <Modal
-                                header='Modal Header'
+                                header='Delete Profile'
                                 trigger={<Button>Delete Profile</Button>}>
                                 <div>
                                     <p> Are you sure you want to delete your profile? </p>
-                                    <Button className="danger" onClick={this.deleteUser}> Delete {this.state.user.userName}'s Profile </Button>
+                                    <DeleteButton className="danger" onClick={this.deleteUser}> Delete {this.state.user.userName}'s Profile </DeleteButton>
                                 </div>
                             </Modal>
 
                         </UserProfileContainer>
+                        {this.state.photosView ? (<PhotosList {...this.props} />) : null}
+                        {this.state.spotsView ? (<SpotsList {...this.props} />) : null}
+
                     </ProfileDashboard>
 
                 </div>

@@ -6,7 +6,8 @@ border: solid black 1px;
 margin: 10px;
 width: 40vw;
 padding: 15px;
-box-shadow: 2px 2px 2px rgba(0,0,0,0.5);`
+box-shadow: 2px 2px 2px rgba(0,0,0,0.5);
+background-color: white;`
 
 class Spots extends Component {
     render() {

@@ -43,7 +43,7 @@ class NavBar extends Component {
                 <Brand >
                     <Link to="/"><h3> Secret Spot </h3></Link>
                 </Brand>
-                <NavLinks>
+                <NavLinks className="hide-on-small-only">
                     <div>
                         <Link to='/login'>Users</Link>
                     </div>
@@ -51,7 +51,7 @@ class NavBar extends Component {
                         <div>|</div>
                     </div>
                     <div>
-                        <Link to='/signup'>Sign Up</Link>
+                        <Link to='/login'>Sign Up</Link>
                     </div>
                 </NavLinks>
             </NavContainer>

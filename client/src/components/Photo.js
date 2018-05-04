@@ -2,6 +2,14 @@ import React, { Component } from 'react';
 import styled from 'styled-components'
 import { Button } from 'react-materialize'
 
+const DeleteButton = styled.div`
+padding: 5px;
+border-radius: 3px;
+background-color: red;
+width: 10vw;
+text-align: center;
+font-size: 10px;`
+
 const PhotoContainer = styled.div`
 display: flex;
 justify-content: space-around;
@@ -19,6 +27,7 @@ margin: 10px;
 width: 40vw;
 padding: 15px;
 box-shadow: 2px 2px 2px rgba(0,0,0,0.5);
+background-color: white;
 `
 
 class Photos extends Component {
@@ -31,7 +40,7 @@ class Photos extends Component {
                         <div> {photo.caption}</div>
                     </PhotoInfoContainer>
                     <div>
-                        <button onClick={() => this.props.deletePhoto(photo._id)}> Delete Photo </button>
+                        <button onClick={() => this.props.deletePhoto(photo._id)}> Delete Photo   </button>
                     </div>
 
                 </div>
