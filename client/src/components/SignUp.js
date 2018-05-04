@@ -39,8 +39,7 @@ class SignUp extends Component {
         }
     }
 
-    handleSignUp = (e) => {
-        e.preventDefault()
+    handleSignUp = () => {
         console.log("About to make API Call", this.state.user)
         axios.post('/api/users', { user: this.state.user })
             .then((res) => {
