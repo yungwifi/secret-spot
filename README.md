@@ -3,8 +3,7 @@ Secret Spot is an application very similar to Instagram but targeted specificall
 
 # Technologies Used 
 1. React
-2. JSX 
-3. Babel
+3. Babel / JSX
 4. Styled Componenets
 5. Materialize for React
 6. Express
