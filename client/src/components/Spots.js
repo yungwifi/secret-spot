@@ -17,13 +17,13 @@ class Spots extends Component {
                     <div key={i}>
                         <div> Spot Name: <input type="text" name="name" value={spot.name}
                             onChange={(e) => { this.props.handleChange(spot, e) }}
-                            onBlur={() => this.props.updateSpot(spot._id)} /> </div>
+                            onBlur={() => this.props.updateSpot(spot._id)} placeholder="Spot Name" /> </div>
                         <div> Location: <input type="text" name="location" value={spot.location}
                             onChange={(e) => { this.props.handleChange(spot, e) }}
-                            onBlur={() => this.props.updateSpot(spot._id)} /></div>
+                            onBlur={() => this.props.updateSpot(spot._id)} placeholder="Location" /></div>
                         <div> Obstacle: <input type="text" name="obstacle" value={spot.obstacle}
                             onChange={(e) => { this.props.handleChange(spot, e) }}
-                            onBlur={() => this.props.updateSpot(spot._id)} /></div>
+                            onBlur={() => this.props.updateSpot(spot._id)} placeholder="Obstacle" /></div>
                         <button onClick={() => this.props.deleteSpot(spot._id)}> Delete Spot </button>
                     </div>
                 </SpotContainer>

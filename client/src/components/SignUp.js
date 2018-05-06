@@ -68,16 +68,16 @@ class SignUp extends Component {
 
                         <InnerFormStyle >
                             <label htmlFor="userName">User Name</label>
-                            <input onChange={this.handleChange} name="userName" type="text" value={this.state.user.userName} />
+                            <input onChange={this.handleChange} name="userName" type="text" placeholder="username" />
                         </InnerFormStyle>
 
                         <InnerFormStyle >
                             <label htmlFor="password">Password</label>
-                            <input onChange={this.handleChange} name="password" type="text" value={this.state.user.password} />
+                            <input onChange={this.handleChange} name="password" type="text" placeholder="password" />
                         </InnerFormStyle>
                         <InnerFormStyle >
                             <label htmlFor="profilePhoto">Profile Photo</label>
-                            <input onChange={this.handleChange} name="profilePhoto" type="text" value={this.state.user.profilePhoto} />
+                            <input onChange={this.handleChange} name="profilePhoto" type="text" placeholder="image URL" />
                         </InnerFormStyle>
                         <ButtonStyle >
                             <div>

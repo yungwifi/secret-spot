@@ -30,7 +30,10 @@ button{
 const ProfileDashboard = styled.div`
 display: flex;
 flex-direction: row-reverse;
-justify-content: space-around;`
+justify-content: space-around;
+@media (max-width: 600px){
+flex-direction: column;
+}`
 
 const UserProfilePhoto = styled.div`
 margin-top: 25px;
@@ -52,7 +55,11 @@ justify-content: space-around;
 width: 25vw;
 height: 60vh;
 margin-left: 100px;
-height: 100vh;`
+height: 100vh;
+@media (max-width: 600px){
+width: 90vw;
+height: 40vh;
+}`
 
 const UserProfileInfo = styled.div`
 display: flex;
@@ -114,7 +121,7 @@ class UserProfile extends Component {
         console.log("DELETING USER ID", userId)
         axios.delete(`/api/users/${userId}`)
             .then((res) => {
-                console.log("RESPONSE FROM DELETING", res.data)
+                console.log("RESPONSE FROM DELETING USER", res.data)
                 this.setState({ redirect: true })
             })
             .catch((err) => {
@@ -155,18 +162,18 @@ class UserProfile extends Component {
                         <UserProfileContainer className="white">
                             <div>
                                 <UserProfilePhoto >
-                                    <img src={this.state.user.profilePhoto} />
+                                    <img src={this.state.user.profilePhoto} className="hide-on-small-only" />
                                 </UserProfilePhoto>
                             </div>
                             <div>
                                 <UserProfileInfo>
                                     <div className="userInfo">
                                         <div> Name: <input type="text" name="name" value={this.state.user.name}
-                                            onChange={this.handleChange} onBlur={() => this.updateUser()} /> </div>
+                                            placeholder="Name" onChange={this.handleChange} onBlur={() => this.updateUser()} /> </div>
                                         <div> Stance: <input type="text" name="stance" value={this.state.user.stance}
-                                            onChange={this.handleChange} onBlur={() => this.updateUser()} />  </div>
+                                            placeholder="Stance" onChange={this.handleChange} onBlur={() => this.updateUser()} />  </div>
                                         <div> Location: <input type="text" name="location" value={this.state.user.location}
-                                            onChange={this.handleChange} onBlur={() => this.updateUser()} /> </div>
+                                            placeholder="Location" onChange={this.handleChange} onBlur={() => this.updateUser()} /> </div>
 
                                     </div>
                                 </UserProfileInfo>

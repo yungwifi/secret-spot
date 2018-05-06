@@ -2,23 +2,20 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const SpotSchema = new Schema({
-    name: {
-        type: String,
-        default: "Example Spot"
-    },
-    location: {
-        type: String,
-        default: "Example Location"
-    },
-    obstacle: {
-        type: String,
-        default: "Example Obstacle"
-    },
+    name: String,
+    location: String,
+    obstacle: String,
 })
 
 const PhotoSchema = new Schema({
-    image: String,
-    caption: String
+    image: {
+        type: String,
+        require: true
+    },
+    caption: {
+        type: String,
+        required: true
+    }
 })
 
 const UserSchema = new Schema({
@@ -30,26 +27,11 @@ const UserSchema = new Schema({
         type: String,
         required: true
     },
-    name: {
-        type: String,
-        default: "Your Name"
-    },
-    profilePhoto: {
-        type: String,
-        default: "Image URL Goes Here"
-    },
-    stance: {
-        type: String,
-        default: "Your Stance"
-    },
-    location: {
-        type: String,
-        default: "Your Location"
-    },
-    bio: {
-        type: String,
-        default: "What do you have to say for yourself?"
-    },
+    name: String,
+    profilePhoto: String,
+    stance: String,
+    location: String,
+    bio: String,
     spots: [SpotSchema],
     photos: [PhotoSchema]
 })
