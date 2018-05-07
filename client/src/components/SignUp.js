@@ -24,6 +24,9 @@ background-color: #E1E8F8;
 @media (max-width: 600px){
     width: 90vw;
     margin: 0 auto;
+    input{
+        width: 70vw;
+    }
 }`
 
 const InnerFormStyle = styled.div`

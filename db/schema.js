@@ -8,14 +8,8 @@ const SpotSchema = new Schema({
 })
 
 const PhotoSchema = new Schema({
-    image: {
-        type: String,
-        require: true
-    },
-    caption: {
-        type: String,
-        required: true
-    }
+    image: String,
+    caption: String,
 })
 
 const UserSchema = new Schema({

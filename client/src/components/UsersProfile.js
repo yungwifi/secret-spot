@@ -75,6 +75,11 @@ textarea{
     border: none;
     height: 10px;
     width: 20px;
+}
+@media (max-width: 600px){
+    input{
+        width: 70vw;
+    }
 }`
 
 class UserProfile extends Component {
