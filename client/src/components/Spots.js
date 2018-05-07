@@ -7,7 +7,10 @@ margin: 10px;
 width: 40vw;
 padding: 15px;
 box-shadow: 2px 2px 2px rgba(0,0,0,0.5);
-background-color: white;`
+background-color: white;
+@media(max-width: 600px){
+    width: 90vw;
+}`
 
 class Spots extends Component {
     render() {

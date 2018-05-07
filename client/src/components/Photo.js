@@ -17,8 +17,8 @@ flex-direction: column;`
 
 const PhotoInfoContainer = styled.div`
 img{
-    width: 15vw;
-    height: 30vh;
+    width: 100%;
+    /* height: 30vh; */
 }
 display: flex;
 flex-direction: column;
@@ -28,6 +28,9 @@ width: 40vw;
 padding: 15px;
 box-shadow: 2px 2px 2px rgba(0,0,0,0.5);
 background-color: white;
+@media(max-width: 600px){
+    width: 90vw;
+}
 `
 
 class Photos extends Component {

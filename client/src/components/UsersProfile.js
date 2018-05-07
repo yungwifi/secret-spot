@@ -58,7 +58,8 @@ margin-left: 100px;
 height: 100vh;
 @media (max-width: 600px){
 width: 90vw;
-height: 40vh;
+height: 60vh;
+margin: 0 auto;
 }`
 
 const UserProfileInfo = styled.div`
