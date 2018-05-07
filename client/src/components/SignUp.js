@@ -20,7 +20,11 @@ width: 40vw;
 box-shadow: 2px 2px 2px rgba(0,0,0,0.5);
 display: flex;
 justify-content: center;
-background-color: #E1E8F8;`
+background-color: #E1E8F8;
+@media (max-width: 600px){
+    width: 90vw;
+    margin: 0 auto;
+}`
 
 const InnerFormStyle = styled.div`
 display: flex;
@@ -28,6 +32,9 @@ flex-direction: column;
 padding: 10px;
 label, input {
     color: #503D18;
+}
+@media (max-width: 600px){
+    width: 70vw;
 }`
 
 class SignUp extends Component {

@@ -7,7 +7,7 @@ import SignUp from './SignUp';
 
 const LoginContainer = styled.div`
 display: flex;
-flex-direction: row;
+flex-direction: row-reverse;
 justify-content: space-around;
 background-color: #949089;
 padding-top: 30px;
@@ -18,6 +18,9 @@ a{
 }
 a:hover{
     color: white;
+}
+@media(max-width: 600px){
+   flex-direction: column;
 }`
 
 class LogInPage extends Component {
@@ -51,11 +54,12 @@ class LogInPage extends Component {
             <div>
                 <NavBar />
                 <LoginContainer >
+                    <SignUp />
                     <div>
                         <h3> Skaters </h3>
                         {userLinks}
                     </div>
-                    <SignUp />
+
                 </LoginContainer>
             </div>
 
